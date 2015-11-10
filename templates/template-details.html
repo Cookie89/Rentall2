@@ -1,0 +1,31 @@
+<div>
+    <a href="#/templates">Go Back</a>
+    <br><br>
+    <div class="col-md-4">
+            <img class="img-full" src="img/{{mainImage}}">
+            <div class="row">
+                <div ng-repeat="image in template.images | limitTo:4">
+                    <div class="col-md-3">
+                        <img class="img-full" ng-src="img/{{image.name}}" ng-click="setImage(image)">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <h3>{{template.name}}</h3>
+        <p>{{template.description}}</p>
+        <p>Renter</p><h5>{{template.user}}</h5>
+        <p>Distance</p></Distance>
+        <p>{{template.distance}}</p>
+        <p>Type: {{template.type}}</p>
+        <h5>{{template.price}}</h5>
+
+        <div class="paypal">
+         <h5>Rent It</h5>
+            <form class="paypal" checkout" method="post" action="/checkout">
+                <div id="payment-form"></div>
+                <input type="submit" value={{template.price}}>
+            </form>
+        </div>
+    </div>
+</div>
